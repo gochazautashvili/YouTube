@@ -10,15 +10,6 @@ const useComment = () => {
     const { comments } = useSelector(state => state.comment)
     const { token } = useAuth()
 
-    // const getComments = (videoID) => {
-    //     useEffect(() => {
-    //         if (token) {
-    //             commentsApi(videoID, token).then(res => {
-    //                 dispatch(allComments(res))
-    //             })
-    //         }
-    //     }, [token])
-    // }
 
     const createComment = (videoID, description) => {
         commentApi(videoID, description, token).then(res => {

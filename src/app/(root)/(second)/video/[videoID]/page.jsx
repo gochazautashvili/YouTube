@@ -7,7 +7,7 @@ import useCommentsEffect from "@hooks/useCommentsEffect";
 import useVideo from "@hooks/useVideo";
 
 const VideoPage = ({ params }) => {
-  const { getComments } = useComment();
+  // const { getComments } = useComment();
   const { getSingleVideosById, history, getVideos } = useVideo();
 
   useCommentsEffect(params.videoID);
