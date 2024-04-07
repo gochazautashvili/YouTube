@@ -13,12 +13,14 @@ const Search = () => {
   return (
     <form
       onSubmit={searchVideos}
-      className="flex gap-x-1 flex-grow justify-end mx-5 sm:justify-center"
+      className="flex gap-x-1 flex-grow justify-end mx-2 sm:mx-5 sm:justify-center"
     >
       <Input className="max-w-[450px] w-full border-2 border-gray-500 focus:border-black hidden sm:flex" />
       <div onClick={() => setSearch(true)}>
         <Button>
-          <CiSearch size={20} />
+          <span>
+            <CiSearch size={20} />
+          </span>
         </Button>
       </div>
       {search && <MobileSearch setSearch={setSearch} />}

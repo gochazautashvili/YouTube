@@ -42,11 +42,11 @@ const Videos = ({
         <div className="flex mt-5 gap-x-5">
           <div className="w-10 h-10">
             <Image
-              className="w-auto h-full rounded-full object-cover"
+              className="w-full h-full rounded-full object-cover"
               src={channelImage ? channelImage : "/team1.webp"}
+              alt={channelName}
               width={40}
               height={40}
-              alt={channelName}
             />
           </div>
           <div>
