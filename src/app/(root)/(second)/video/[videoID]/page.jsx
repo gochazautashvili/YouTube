@@ -6,11 +6,11 @@ import useComment from "@hooks/useComment";
 import useVideo from "@hooks/useVideo";
 
 const Page = ({ params }) => {
-  const { getComments } = useComment();
-  const { getSingleVideosById, history, getVideos } = useVideo();
+  const { GetComments } = useComment();
+  const { GetSingleVideosById, history, getVideos } = useVideo();
 
-  getComments(params.videoID);
-  getSingleVideosById(params.videoID);
+  GetComments(params.videoID);
+  GetSingleVideosById(params.videoID);
   history(params.videoID);
   getVideos();
 

@@ -101,7 +101,7 @@ const useAuth = () => {
         } else if (!user) {
             router.push('/')
         }
-    }, [])
+    }, [dispatch, router])
 
     return { Login, newUser, error, token, Register, Logout, isError, handelUploadProfile, handleSubmit, setAuth, auth, handleSubscribe }
 }

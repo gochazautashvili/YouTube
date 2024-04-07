@@ -8,14 +8,14 @@ import { useState } from "react";
 
 const Page = () => {
   const { newUser, Logout } = useAuth();
-  const { getYourVideosById, YourVideo, deleteVideoByID } = useVideo();
+  const { GetYourVideosById, YourVideo, deleteVideoByID } = useVideo();
   const [deleteVideo, setDeleteVideo] = useState(false);
 
   const image = newUser?.image;
   const name = newUser?.name;
   const subscribers = newUser?.subscribers;
 
-  getYourVideosById();
+  GetYourVideosById();
 
   return (
     <main className="lg:ml-[250px]">

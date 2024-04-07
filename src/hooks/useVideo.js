@@ -17,7 +17,7 @@ const useVideo = () => {
     const searchPath = searchParams.get("search-videos")
 
 
-    const getVideos = () => {
+    const GetVideos = () => {
         useEffect(() => {
             const fetchVideos = async () => {
                 if (token) {
@@ -42,7 +42,7 @@ const useVideo = () => {
         }, [searchPath, token])
     }
 
-    const getYourVideosById = () => {
+    const GetYourVideosById = () => {
         useEffect(() => {
             const fetchVideos = async () => {
                 if (token) {
@@ -60,7 +60,7 @@ const useVideo = () => {
         }, [token])
     }
 
-    const getSingleVideosById = async (videoID) => {
+    const GetSingleVideosById = async (videoID) => {
         useEffect(() => {
             const fetchVideos = async () => {
                 if (token) {
@@ -125,7 +125,7 @@ const useVideo = () => {
         });
     };
 
-    const getSubscriptions = () => {
+    const GetSubscriptions = () => {
         useEffect(() => {
             if (token) {
                 subscriptionApi(token).then(res => {
@@ -136,7 +136,7 @@ const useVideo = () => {
         }, [token])
     }
 
-    const getSubscriptionsChannels = () => {
+    const GetSubscriptionsChannels = () => {
         useEffect(() => {
             if (token) {
                 subscriptionChannelApi(token).then(res => {
@@ -146,7 +146,7 @@ const useVideo = () => {
         }, [token])
     }
 
-    const getLikedVideos = () => {
+    const GetLikedVideos = () => {
         useEffect(() => {
             if (token) {
                 likedVideos(token).then(res => {
@@ -174,7 +174,7 @@ const useVideo = () => {
         }, [token])
     }
 
-    const getChannelById = (channelID) => {
+    const GetChannelById = (channelID) => {
         useEffect(() => {
             if (token) {
                 getChannels(channelID, token).then(res => {
@@ -215,7 +215,7 @@ const useVideo = () => {
         loading,
         history,
         channels,
-        getVideos,
+        GetVideos,
         YourVideo,
         likedVideo,
         handleLike,
@@ -227,15 +227,15 @@ const useVideo = () => {
         historyState,
         handleDislike,
         subscribeValue,
-        getChannelById,
-        getLikedVideos,
+        GetChannelById,
+        GetLikedVideos,
         handleDownload,
         deleteVideoByID,
-        getSubscriptions,
-        getYourVideosById,
-        getSingleVideosById,
+        GetSubscriptions,
+        GetYourVideosById,
+        GetSingleVideosById,
         subscriptionChannels,
-        getSubscriptionsChannels
+        GetSubscriptionsChannels
     }
 }
 
