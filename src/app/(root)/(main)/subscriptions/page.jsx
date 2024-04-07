@@ -2,7 +2,7 @@
 import Videos from "@components/Videos";
 import useVideo from "@hooks/useVideo";
 
-const Page = () => {
+const Subscription = () => {
   const { getSubscriptions, subscription } = useVideo();
 
   getSubscriptions();
@@ -30,4 +30,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Subscription;

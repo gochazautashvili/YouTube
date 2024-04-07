@@ -2,7 +2,7 @@
 import Videos from "@components/Videos";
 import useVideo from "@hooks/useVideo";
 
-const Page = () => {
+const LikedVideo = () => {
   const { getLikedVideos, likedVideo } = useVideo();
 
   getLikedVideos();
@@ -30,4 +30,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default LikedVideo;

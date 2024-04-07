@@ -6,7 +6,7 @@ import useVideo from "@hooks/useVideo";
 import Image from "next/image";
 import { useState } from "react";
 
-const pzage = () => {
+const Profile = () => {
   const { newUser, Logout } = useAuth();
   const { getYourVideosById, YourVideo, deleteVideoByID } = useVideo();
   const [deleteVideo, setDeleteVideo] = useState(false);
@@ -70,4 +70,4 @@ const pzage = () => {
   );
 };
 
-export default page;
+export default Profile;

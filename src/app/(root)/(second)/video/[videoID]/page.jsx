@@ -5,7 +5,7 @@ import Video from "@components/Video";
 import useComment from "@hooks/useComment";
 import useVideo from "@hooks/useVideo";
 
-const page = ({ params }) => {
+const VideoPage = ({ params }) => {
   const { getComments } = useComment();
   const { getSingleVideosById, history, getVideos } = useVideo();
 
@@ -27,4 +27,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default VideoPage;
