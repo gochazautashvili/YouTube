@@ -56,7 +56,7 @@ const useVideo = () => {
             }
 
             fetchVideos()
-        }, [token])
+        }, [])
     }
 
     const GetSingleVideosById = async (videoID) => {
@@ -74,7 +74,7 @@ const useVideo = () => {
             }
 
             fetchVideos()
-        }, [token, videoID])
+        }, [videoID])
     }
 
     const handleLike = async (videoID) => {
@@ -132,7 +132,7 @@ const useVideo = () => {
                 })
             }
 
-        }, [token])
+        }, [])
     }
 
     const GetSubscriptionsChannels = () => {
@@ -142,7 +142,7 @@ const useVideo = () => {
                     dispatch(getSubscriptionChannelsState(res))
                 })
             }
-        }, [token])
+        }, [])
     }
 
     const GetLikedVideos = () => {
@@ -152,25 +152,25 @@ const useVideo = () => {
                     dispatch(getLikedVideosState(res.data))
                 })
             }
-        }, [token])
+        }, [])
     }
 
-    const history = (videoID) => {
+    const History = (videoID) => {
         useEffect(() => {
             if (token) {
                 addHistory(videoID, token)
             }
-        }, [token])
+        }, [])
     }
 
-    const yourHistory = () => {
+    const YourHistory = () => {
         useEffect(() => {
             if (token) {
                 getHistory(token).then(res => {
                     dispatch(getHistoryState(res.data))
                 })
             }
-        }, [token])
+        }, [])
     }
 
     const GetChannelById = (channelID) => {
@@ -180,7 +180,7 @@ const useVideo = () => {
                     dispatch(getChannelsState(res.data))
                 })
             }
-        }, [token])
+        }, [])
     }
 
     const searchVideos = (e) => {
@@ -212,14 +212,14 @@ const useVideo = () => {
     return {
         videos,
         loading,
-        history,
+        History,
         channels,
         GetVideos,
         YourVideo,
         likedVideo,
         handleLike,
         handleShare,
-        yourHistory,
+        YourHistory,
         singleVideo,
         subscription,
         searchVideos,
