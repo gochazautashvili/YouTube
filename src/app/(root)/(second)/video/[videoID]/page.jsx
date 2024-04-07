@@ -3,13 +3,14 @@ import CategoryVideo from "@components/CategoryVideo";
 import Comments from "@components/Comments";
 import Video from "@components/Video";
 import useComment from "@hooks/useComment";
+import useCommentsEffect from "@hooks/useCommentsEffect";
 import useVideo from "@hooks/useVideo";
 
 const VideoPage = ({ params }) => {
   const { getComments } = useComment();
   const { getSingleVideosById, history, getVideos } = useVideo();
 
-  getComments(params.videoID);
+  useCommentsEffect(params.videoID);
   getSingleVideosById(params.videoID);
   history(params.videoID);
   getVideos();
