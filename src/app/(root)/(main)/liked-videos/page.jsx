@@ -3,9 +3,9 @@ import Videos from "@components/Videos";
 import useVideo from "@hooks/useVideo";
 
 const Page = () => {
-  const { GetLikedVideos, likedVideo } = useVideo();
+  const { getLikedVideos, likedVideo } = useVideo();
 
-  GetLikedVideos();
+  getLikedVideos();
 
   return (
     <main className="lg:ml-[250px] mt-20 px-6">

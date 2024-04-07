@@ -6,9 +6,9 @@ import useVideo from "@hooks/useVideo";
 
 const Hero = () => {
   const { newUser } = useAuth();
-  const { GetVideos, videos } = useVideo();
+  const { getVideos, videos } = useVideo();
 
-  GetVideos();
+  getVideos();
 
   return (
     <>

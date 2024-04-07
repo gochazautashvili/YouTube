@@ -10,14 +10,14 @@ const useComment = () => {
     const { comments } = useSelector(state => state.comment)
     const { token } = useAuth()
 
-    const GetComments = (videoID) => {
+    const getComments = (videoID) => {
         useEffect(() => {
             if (token) {
                 commentsApi(videoID, token).then(res => {
                     dispatch(allComments(res))
                 })
             }
-        }, [videoID])
+        }, [token])
     }
 
     const createComment = (videoID, description) => {
@@ -52,7 +52,7 @@ const useComment = () => {
         })
     }
 
-    return { GetComments, handleUpdate, deleteComment, createComment, comments, likeVideo, dislikeVideo }
+    return { getComments, handleUpdate, deleteComment, createComment, comments, likeVideo, dislikeVideo }
 }
 
 export default useComment

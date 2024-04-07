@@ -6,16 +6,16 @@ import useVideo from "@hooks/useVideo";
 import Image from "next/image";
 import { useState } from "react";
 
-const Page = () => {
+const pzage = () => {
   const { newUser, Logout } = useAuth();
-  const { GetYourVideosById, YourVideo, deleteVideoByID } = useVideo();
+  const { getYourVideosById, YourVideo, deleteVideoByID } = useVideo();
   const [deleteVideo, setDeleteVideo] = useState(false);
 
   const image = newUser?.image;
   const name = newUser?.name;
   const subscribers = newUser?.subscribers;
 
-  GetYourVideosById();
+  getYourVideosById();
 
   return (
     <main className="lg:ml-[250px]">
@@ -70,4 +70,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default page;

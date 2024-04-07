@@ -2,10 +2,10 @@
 import Videos from "@components/Videos";
 import useVideo from "@hooks/useVideo";
 
-const Page = ({ params }) => {
-  const { GetChannelById, channels } = useVideo();
+const page = ({ params }) => {
+  const { getChannelById, channels } = useVideo();
 
-  GetChannelById(params.channelID);
+  getChannelById(params.channelID);
 
   return (
     <main className="lg:ml-[250px] mt-20 px-6">
@@ -30,4 +30,4 @@ const Page = ({ params }) => {
   );
 };
 
-export default Page;
+export default page;
