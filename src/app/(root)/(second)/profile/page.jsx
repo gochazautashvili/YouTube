@@ -6,7 +6,7 @@ import useVideo from "@hooks/useVideo";
 import Image from "next/image";
 import { useState } from "react";
 
-const page = () => {
+const Page = () => {
   const { newUser, Logout } = useAuth();
   const { getYourVideosById, YourVideo, deleteVideoByID } = useVideo();
   const [deleteVideo, setDeleteVideo] = useState(false);
@@ -70,4 +70,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

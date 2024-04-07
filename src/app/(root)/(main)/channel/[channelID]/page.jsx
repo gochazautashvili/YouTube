@@ -2,7 +2,7 @@
 import Videos from "@components/Videos";
 import useVideo from "@hooks/useVideo";
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { getChannelById, channels } = useVideo();
 
   getChannelById(params.channelID);
@@ -30,4 +30,4 @@ const page = ({ params }) => {
   );
 };
 
-export default page;
+export default Page;

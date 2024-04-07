@@ -1,6 +1,6 @@
 import Upload from "@components/Upload";
 
-const page = () => {
+const Page = () => {
   return (
     <section>
       <Upload />
@@ -8,4 +8,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
