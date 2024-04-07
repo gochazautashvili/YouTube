@@ -12,7 +12,7 @@ const useCommentsEffect = (videoID, token) => {
                 dispatch(allComments(res))
             })
         }
-    }, [])
+    }, [videoID, token, dispatch])
 }
 
 export default useCommentsEffect
