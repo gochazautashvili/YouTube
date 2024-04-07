@@ -1,10 +1,11 @@
 "use client";
 import useAuth from "@hooks/useAuth";
-import Videos from "./Videos";
 import Auth from "./auth/Auth";
 import useVideo from "@hooks/useVideo";
 import useVideosEffect from "@hooks/useVideosEffect";
 import { useSearchParams } from "next/navigation";
+import dynamic from "next/dynamic";
+const Videos = dynamic(() => import("./Videos"), { ssr: false });
 
 const Hero = () => {
   const searchParams = useSearchParams();
