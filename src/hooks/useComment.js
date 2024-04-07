@@ -9,7 +9,6 @@ const useComment = () => {
     const dispatch = useDispatch()
     const { comments } = useSelector(state => state.comment)
     const { token } = useAuth()
-    const { newUser } = useAuth()
 
     const GetComments = (videoID) => {
         useEffect(() => {
@@ -18,7 +17,7 @@ const useComment = () => {
                     dispatch(allComments(res))
                 })
             }
-        }, [token, videoID, dispatch])
+        }, [videoID])
     }
 
     const createComment = (videoID, description) => {

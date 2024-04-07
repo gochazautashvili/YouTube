@@ -38,8 +38,7 @@ const useVideo = () => {
             } else {
                 fetchVideos()
             }
-
-        }, [searchPath, token])
+        }, [])
     }
 
     const GetYourVideosById = () => {
@@ -75,7 +74,7 @@ const useVideo = () => {
             }
 
             fetchVideos()
-        }, [token])
+        }, [token, videoID])
     }
 
     const handleLike = async (videoID) => {

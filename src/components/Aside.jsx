@@ -10,10 +10,10 @@ import useVideo from "@hooks/useVideo";
 const Aside = () => {
   const [menu, setMenu] = useState(false);
   const pathname = usePathname();
-  const { getSubscriptionsChannels, subscriptionChannels } = useVideo();
+  const { GetSubscriptionsChannels, subscriptionChannels } = useVideo();
   const path = pathname.includes("/video/") | pathname.includes("/upload");
 
-  getSubscriptionsChannels();
+  GetSubscriptionsChannels();
 
   return (
     <>

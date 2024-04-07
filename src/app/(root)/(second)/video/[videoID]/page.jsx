@@ -5,14 +5,14 @@ import Video from "@components/Video";
 import useComment from "@hooks/useComment";
 import useVideo from "@hooks/useVideo";
 
-const Page = ({ params }) => {
+const page = ({ params }) => {
   const { GetComments } = useComment();
-  const { GetSingleVideosById, history, getVideos } = useVideo();
+  const { GetSingleVideosById, history, GetVideos } = useVideo();
 
   GetComments(params.videoID);
   GetSingleVideosById(params.videoID);
   history(params.videoID);
-  getVideos();
+  GetVideos();
 
   return (
     <main className="mt-20 lg:mt-24 w-full max-w-screen-2xl mx-auto lg:flex gap-x-5 flex-[1]">
@@ -27,4 +27,4 @@ const Page = ({ params }) => {
   );
 };
 
-export default Page;
+export default page;
