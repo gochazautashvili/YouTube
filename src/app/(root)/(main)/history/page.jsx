@@ -1,11 +1,14 @@
 "use client";
 import Videos from "@components/Videos";
+import useAuth from "@hooks/useAuth";
 import useVideo from "@hooks/useVideo";
+import useYourHistory from "@hooks/useYourHistory";
 
 const History = () => {
-  const { yourHistory, historyState } = useVideo();
+  const { historyState } = useVideo();
+  const { token } = useAuth();
 
-  yourHistory();
+  useYourHistory(token);
 
   return (
     <main className="lg:ml-[250px] mt-20 px-6">

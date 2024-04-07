@@ -3,19 +3,21 @@ import Videos from "@components/Videos";
 import { Button } from "@components/ui/button";
 import useAuth from "@hooks/useAuth";
 import useVideo from "@hooks/useVideo";
+import useYourVideo from "@hooks/useYourVideo";
 import Image from "next/image";
 import { useState } from "react";
 
 const Profile = () => {
   const { newUser, Logout } = useAuth();
-  const { getYourVideosById, YourVideo, deleteVideoByID } = useVideo();
+  const { YourVideo, deleteVideoByID } = useVideo();
   const [deleteVideo, setDeleteVideo] = useState(false);
+  const { token } = useAuth();
 
   const image = newUser?.image;
   const name = newUser?.name;
   const subscribers = newUser?.subscribers;
 
-  getYourVideosById();
+  useYourVideo(token);
 
   return (
     <main className="lg:ml-[250px]">

@@ -1,11 +1,14 @@
 "use client";
 import Videos from "@components/Videos";
+import useAuth from "@hooks/useAuth";
+import useChannel from "@hooks/useChannel";
 import useVideo from "@hooks/useVideo";
 
 const Channel = ({ params }) => {
-  const { getChannelById, channels } = useVideo();
+  const { channels } = useVideo();
+  const { token } = useAuth();
 
-  getChannelById(params.channelID);
+  useChannel(params.channelID, token);
 
   return (
     <main className="lg:ml-[250px] mt-20 px-6">

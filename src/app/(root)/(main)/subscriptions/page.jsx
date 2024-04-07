@@ -1,11 +1,14 @@
 "use client";
 import Videos from "@components/Videos";
+import useAuth from "@hooks/useAuth";
+import useSubscriptions from "@hooks/useSubscriptions";
 import useVideo from "@hooks/useVideo";
 
 const Subscription = () => {
-  const { getSubscriptions, subscription } = useVideo();
+  const { subscription } = useVideo();
+  const { token } = useAuth();
 
-  getSubscriptions();
+  useSubscriptions(token);
 
   return (
     <main className="lg:ml-[250px] mt-20 px-6">

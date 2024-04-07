@@ -1,10 +1,10 @@
-import { addHistory, deleteVideo, dislike, downloadVideo, getAllVideo, getChannels, getHistory, getSingleVideo, getYourVideos, like, likedVideos, search, subscriptionApi, subscriptionChannelApi } from "@actions/video"
-import { deleteYourVideoByID, dislikeLength, getAllVideoState, getChannelsState, getHistoryState, getLikedVideosState, getSingleVideoState, getSubscriptionChannelsState, getSubscriptionState, getYourVideoState, likeLength } from "@store/videoSlice"
+import { deleteVideo, dislike, downloadVideo, like, } from "@actions/video"
+import { deleteYourVideoByID, dislikeLength, likeLength } from "@store/videoSlice"
 import { useDispatch, useSelector } from "react-redux"
-import { useCallback, useEffect, useState } from "react";
-import useAuth from "./useAuth"
+import { useCallback, useState } from "react";
 import { dislikeVideo, likeVideo } from "@store/authSlice";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import useAuth from "./useAuth"
 
 const useVideo = () => {
     const dispatch = useDispatch()
@@ -14,69 +14,6 @@ const useVideo = () => {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    const searchPath = searchParams.get("search-videos")
-
-
-    const getVideos = () => {
-        useEffect(() => {
-            const fetchVideos = async () => {
-                if (token) {
-                    try {
-                        const res = await getAllVideo(token)
-
-                        dispatch(getAllVideoState(res.data))
-                    } catch (error) {
-                        console.log(error);
-                    }
-                }
-            }
-
-            if (token && searchPath) {
-                search(searchPath, token).then(res => {
-                    dispatch(getAllVideoState(res.data))
-                })
-            } else {
-                fetchVideos()
-            }
-
-        }, [searchPath, token])
-    }
-
-    const getYourVideosById = () => {
-        useEffect(() => {
-            const fetchVideos = async () => {
-                if (token) {
-                    try {
-                        const res = await getYourVideos(token)
-
-                        dispatch(getYourVideoState(res.data))
-                    } catch (error) {
-                        console.log(error);
-                    }
-                }
-            }
-
-            fetchVideos()
-        }, [token])
-    }
-
-    const getSingleVideosById = async (videoID) => {
-        useEffect(() => {
-            const fetchVideos = async () => {
-                if (token) {
-                    try {
-                        const res = await getSingleVideo(videoID, token)
-
-                        dispatch(getSingleVideoState(res.data))
-                    } catch (error) {
-                        console.log(error);
-                    }
-                }
-            }
-
-            fetchVideos()
-        }, [token])
-    }
 
     const handleLike = async (videoID) => {
         await like(videoID, token)
@@ -125,65 +62,6 @@ const useVideo = () => {
         });
     };
 
-    const getSubscriptions = () => {
-        useEffect(() => {
-            if (token) {
-                subscriptionApi(token).then(res => {
-                    dispatch(getSubscriptionState(res.data))
-                })
-            }
-
-        }, [token])
-    }
-
-    const getSubscriptionsChannels = () => {
-        useEffect(() => {
-            if (token) {
-                subscriptionChannelApi(token).then(res => {
-                    dispatch(getSubscriptionChannelsState(res))
-                })
-            }
-        }, [token])
-    }
-
-    const getLikedVideos = () => {
-        useEffect(() => {
-            if (token) {
-                likedVideos(token).then(res => {
-                    dispatch(getLikedVideosState(res.data))
-                })
-            }
-        }, [token])
-    }
-
-    const history = (videoID) => {
-        useEffect(() => {
-            if (token) {
-                addHistory(videoID, token)
-            }
-        }, [token])
-    }
-
-    const yourHistory = () => {
-        useEffect(() => {
-            if (token) {
-                getHistory(token).then(res => {
-                    dispatch(getHistoryState(res.data))
-                })
-            }
-        }, [token])
-    }
-
-    const getChannelById = (channelID) => {
-        useEffect(() => {
-            if (token) {
-                getChannels(channelID, token).then(res => {
-                    dispatch(getChannelsState(res.data))
-                })
-            }
-        }, [token])
-    }
-
     const searchVideos = (e) => {
         e.preventDefault();
         if (e.target[0].value.trim() !== "" || e.target[2].value.trim() !== "") {
@@ -213,29 +91,20 @@ const useVideo = () => {
     return {
         videos,
         loading,
-        history,
         channels,
-        getVideos,
         YourVideo,
         likedVideo,
         handleLike,
         handleShare,
-        yourHistory,
         singleVideo,
         subscription,
         searchVideos,
         historyState,
         handleDislike,
         subscribeValue,
-        getChannelById,
-        getLikedVideos,
         handleDownload,
         deleteVideoByID,
-        getSubscriptions,
-        getYourVideosById,
-        getSingleVideosById,
         subscriptionChannels,
-        getSubscriptionsChannels
     }
 }
 

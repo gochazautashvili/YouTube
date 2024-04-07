@@ -3,12 +3,17 @@ import useAuth from "@hooks/useAuth";
 import Videos from "./Videos";
 import Auth from "./auth/Auth";
 import useVideo from "@hooks/useVideo";
+import useVideosEffect from "@hooks/useVideosEffect";
+import { useSearchParams } from "next/navigation";
 
 const Hero = () => {
+  const searchParams = useSearchParams();
+  const searchPath = searchParams.get("search-videos");
+  const { token } = useAuth();
   const { newUser } = useAuth();
-  const { getVideos, videos } = useVideo();
+  const { videos } = useVideo();
 
-  getVideos();
+  useVideosEffect(searchPath, token);
 
   return (
     <>

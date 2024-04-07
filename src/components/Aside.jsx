@@ -6,14 +6,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import MySubscribe from "./MySubscribe";
 import useVideo from "@hooks/useVideo";
+import useSubscriptionsChannels from "@hooks/useSubscriptionsChannels";
+import useAuth from "@hooks/useAuth";
 
 const Aside = () => {
   const [menu, setMenu] = useState(false);
   const pathname = usePathname();
-  const { getSubscriptionsChannels, subscriptionChannels } = useVideo();
+  const { subscriptionChannels } = useVideo();
+  const { token } = useAuth();
   const path = pathname.includes("/video/") | pathname.includes("/upload");
 
-  getSubscriptionsChannels();
+  useSubscriptionsChannels(token);
 
   return (
     <>
