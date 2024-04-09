@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = 'https://mytube-api.vercel.app/video'
+const API = 'http://localhost:8000/video'
 
 
 export const createVideo = async (title, description, video_url, image_url, token) => {

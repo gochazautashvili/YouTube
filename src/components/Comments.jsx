@@ -46,9 +46,9 @@ const Comments = ({ videoID }) => {
         {comments?.map((comment) => {
           return (
             <SingleComment
-              likes={comment?.likes?.length}
-              key={comment?._id}
               _id={comment?._id}
+              key={comment?._id}
+              likes={comment?.likes?.length}
               channelID={comment?.channelID?._id}
               createdAt={comment?.createdAt}
               name={comment?.channelID?.name}

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = 'https://mytube-api.vercel.app/auth'
+const API = 'http://localhost:8000/auth'
 
 export const registerApi = async (gmail, name, password, image) => {
     const user = await axios.post(`${API}/register`, { gmail, name, password, image })

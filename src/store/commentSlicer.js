@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    comments: []
+    comments: [],
 }
 
 const commentSlicer = createSlice({
@@ -53,7 +53,7 @@ const commentSlicer = createSlice({
                     comment.description = actions.payload.description
                 }
             })
-        }
+        },
     }
 })
 

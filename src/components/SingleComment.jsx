@@ -13,12 +13,12 @@ import UpdateComment from "./UpdateComment";
 import { useState } from "react";
 
 const SingleComment = ({
+  _id,
+  desc,
   name,
   image,
-  desc,
-  createdAt,
-  _id,
   likes,
+  createdAt,
   channelID,
 }) => {
   const { likeVideo, dislikeVideo, deleteComment } = useComment();
@@ -69,7 +69,6 @@ const SingleComment = ({
                   <BiDislike className="cursor-pointer" size={20} />
                 )}
               </button>
-              <p className="cursor-pointer font-semibold">Reply</p>
             </div>
           </div>
         </div>
