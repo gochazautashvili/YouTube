@@ -9,7 +9,7 @@ import useAuth from "./useAuth"
 const useVideo = () => {
     const dispatch = useDispatch()
     const { videos, YourVideo, singleVideo, channels, historyState, subscribeValue, subscription, subscriptionChannels, likedVideo } = useSelector(state => state.video)
-    const { token } = useAuth()
+    const { token, newUser } = useAuth()
     const [loading, setLoading] = useState(false);
     const router = useRouter();
     const pathname = usePathname();
@@ -19,14 +19,14 @@ const useVideo = () => {
         await like(videoID, token)
 
         dispatch(likeVideo(videoID))
-        dispatch(likeLength(videoID))
+        dispatch(likeLength(newUser?._id))
     }
 
     const handleDislike = async (videoID) => {
         await dislike(videoID, token)
 
         dispatch(dislikeVideo(videoID))
-        dispatch(dislikeLength(videoID))
+        dispatch(dislikeLength(newUser?._id))
     }
 
     const handleShare = async () => {
