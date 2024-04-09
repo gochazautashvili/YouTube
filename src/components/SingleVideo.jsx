@@ -15,7 +15,7 @@ const SingleVideo = ({ image, title, name, createdAt, id, views }) => {
           height={100}
         />
       </Link>
-      <Link href={`'/video/${id}`} className="flex flex-col">
+      <Link href={`/video/${id}`} className="flex flex-col">
         <h1 className="text-sm sm:text-base font-medium text-black">{title}</h1>
         <p className="mt-1 text-sm text-gray-600">{name}</p>
         <p className="text-[12px] text-gray-500 mt-1">
