@@ -9,9 +9,6 @@ import Image from "next/image";
 import Description from "./Description";
 import useVideo from "@hooks/useVideo";
 import useAuth from "@hooks/useAuth";
-import Comments from "./Comments";
-import { IoClose } from "react-icons/io5";
-import { useState } from "react";
 import { QFormat } from "@lib/FormatQuantity";
 
 const Video = () => {
@@ -28,7 +25,6 @@ const Video = () => {
   const itMe = newUser?._id === singleVideo?.channelID?._id;
   const like = newUser?.liked?.includes(singleVideo?._id);
   const dislike = newUser?.disliked?.includes(singleVideo?._id);
-  const [comment, setComment] = useState(false);
 
   return (
     <section className="flex flex-col">
@@ -121,22 +117,6 @@ const Video = () => {
         createdAt={singleVideo?.createdAt}
         desc={singleVideo?.description}
       />
-      <div
-        className="lg:hidden w-full py-4 mb-3 bg-slate-300 rounded-lg cursor-pointer"
-        onClick={() => setComment(true)}
-      >
-        <h1 className="text-center text-2xl font-bold">Comments</h1>
-      </div>
-      {comment && (
-        <div className="lg:hidden fixed rounded-xl top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] max-w-[800px] h-[500px] w-full p-5 bg-slate-400 overflow-auto">
-          <IoClose
-            onClick={() => setComment(false)}
-            className="cursor-pointer"
-            size={30}
-          />
-          <Comments />
-        </div>
-      )}
     </section>
   );
 };

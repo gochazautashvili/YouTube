@@ -32,6 +32,8 @@ const Videos = ({
         <div className="w-full max-h-[280px]">
           <Image
             className="w-full h-full rounded-xl"
+            placeholder="blur"
+            blurDataURL="/posts1.webp"
             src={image}
             width={300}
             height={280}
