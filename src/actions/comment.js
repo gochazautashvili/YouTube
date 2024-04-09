@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = 'http://localhost:8000/comment'
+const API = 'https://mytube-api.vercel.app/comment'
 
 export const commentsApi = async (videoID, token) => {
     try {
