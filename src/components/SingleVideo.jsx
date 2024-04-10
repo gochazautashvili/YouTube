@@ -6,13 +6,18 @@ import { QFormat } from "@lib/FormatQuantity";
 const SingleVideo = ({ image, title, name, createdAt, id, views }) => {
   return (
     <div className="flex gap-x-3">
-      <Link className="w-full max-w-[170px] min-w-[140px] flex-[1]" href={`/video/${id}`}>
+      <Link
+        className="w-full max-w-[170px] min-w-[140px] flex-[1]"
+        href={`/video/${id}`}
+      >
         <Image
-          className="rounded-xl w-full h-full"
+          className="rounded-xl w-auto h-full"
           src={image}
-          alt="single-video-by-category"
           width={170}
           height={100}
+          blurDataURL={'/posts1.webp'}
+          placeholder="blur"
+          alt="single-video-by-category"
         />
       </Link>
       <Link href={`/video/${id}`} className="flex flex-col flex-[1]">

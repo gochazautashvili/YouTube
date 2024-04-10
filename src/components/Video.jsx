@@ -58,8 +58,9 @@ const Video = () => {
             </div>
             <div className="flex flex-col">
               <h1 className="font-semibold">{singleVideo?.channelID.name}</h1>
-              <p className="text-gray-500 text-sm">
-                {singleVideo?.channelID.subscribers.length} subscribers
+              <p className="text-gray-500 text-sm flex gap-2">
+                <span> {singleVideo?.channelID.subscribers.length}</span>{" "}
+                subscribers
               </p>
             </div>
           </Link>

@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { PiSortAscendingBold } from "react-icons/pi";
 import Link from "next/link";
 import { Input } from "./ui/input";
 import SingleComment from "./SingleComment";
@@ -21,11 +20,8 @@ const Comments = ({ videoID }) => {
 
   return (
     <section className="flex flex-col mt-4 w-full">
-      <div className="flex gap-x-10 items-center">
+      <div className="flex gap-x-10 items-center relative">
         <h1 className="font-semibold text-xl">{comments?.length} Comments</h1>
-        <Button className="flex gap-x-3">
-          <PiSortAscendingBold size={22} /> Sort By
-        </Button>
       </div>
       <div className="my-10 flex gap-x-5 items-center">
         <Link href="/" className="w-10 h-10 flex-none">
