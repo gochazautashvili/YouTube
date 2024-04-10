@@ -6,7 +6,7 @@ import { QFormat } from "@lib/FormatQuantity";
 const SingleVideo = ({ image, title, name, createdAt, id, views }) => {
   return (
     <div className="flex gap-x-3">
-      <Link className="w-[170px] h-[100px] min-w-[160px]" href={`/video/${id}`}>
+      <Link className="w-full max-w-[170px] min-w-[140px] flex-[1]" href={`/video/${id}`}>
         <Image
           className="rounded-xl w-full h-full"
           src={image}
@@ -15,7 +15,7 @@ const SingleVideo = ({ image, title, name, createdAt, id, views }) => {
           height={100}
         />
       </Link>
-      <Link href={`/video/${id}`} className="flex flex-col">
+      <Link href={`/video/${id}`} className="flex flex-col flex-[1]">
         <h1 className="text-sm sm:text-base font-medium text-black">{title}</h1>
         <p className="mt-1 text-sm text-gray-600">{name}</p>
         <p className="text-[12px] text-gray-500 mt-1">

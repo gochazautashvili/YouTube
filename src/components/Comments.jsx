@@ -28,7 +28,7 @@ const Comments = ({ videoID }) => {
         </Button>
       </div>
       <div className="my-10 flex gap-x-5 items-center">
-        <Link href="/" className="w-10 h-10">
+        <Link href="/" className="w-10 h-10 flex-none">
           <Image
             className="rounded-full object-cover w-auto h-full"
             src="/team1.webp"
