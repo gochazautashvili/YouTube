@@ -15,8 +15,6 @@ const SingleVideo = ({ image, title, name, createdAt, id, views }) => {
           src={image}
           width={170}
           height={100}
-          blurDataURL={'/posts1.webp'}
-          placeholder="blur"
           alt="single-video-by-category"
         />
       </Link>
